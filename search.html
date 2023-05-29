@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="styles.css">
+    <title>SEARCH</title>
+    <link rel="icon" type="image/png" href="search.png">
+    <script>
+        fetch('movies.csv')
+        .then(response => response.text())
+        .then(csvData => {
+            const rows = csvData.split('\n');
+            const moviesData = rows.map(row => row.split(','));
+
+            // Sort movies by name in ascending order
+            moviesData.sort((a, b) => a[0].localeCompare(b[0]));
+
+            // Get the search input and button from the HTML
+            const searchInput = document.getElementById('searchInput');
+            const searchButton = document.getElementById('searchButton');
+
+            searchButton.addEventListener('click', performSearch);
+            searchInput.addEventListener('keyup', function(event) {
+                if (event.keyCode === 13) { // Check if Enter key was pressed
+                    performSearch();
+                }
+            });
+
+            searchInput.addEventListener('focus', function() {
+                document.removeEventListener('keyup', performSearchOnEnter);
+            });
+
+            function performSearch() {
+                console.log("clicked");
+
+                rows.forEach(movie => {
+                    const movieDetails = movie.split(',');
+                    const firstWord = movieDetails[0].trim();
+
+                    if(firstWord.toLowerCase().includes(searchInput.value.toLowerCase())){
+                        console.log("Movie found: " + firstWord);
+                        const element = document.getElementById(firstWord);
+                        const originalColor = element.style.backgroundColor;
+                        // Set the new background color
+                        element.style.backgroundColor = 'rgba(255, 0, 0, 0.5)';
+
+                        // Revert the background color after 5 seconds
+                        setTimeout(function() {
+                            element.style.backgroundColor = originalColor;
+                        }, 5000);
+                        element.scrollIntoView();
+                    }
+                });
+            }
+
+            // Create a container div for all movie details
+            const container = document.createElement('div');
+
+            // Add a class to the container div
+            container.classList.add('movie-container');
+
+            // Iterate over each movie data
+            moviesData.forEach(movie => {
+                const title = movie[0];
+                const genre = movie[1];
+                const description = movie[2];
+                const rating = movie[3];
+                const poster = movie[movie.length - 1]; // Get the last value as the poster
+
+                // Create HTML elements for the movie details
+                const movieElement = document.createElement('div');
+                const titleElement = document.createElement('h1');
+                const genreHeader = document.createElement('h2');
+                const genreElement = document.createElement('p');
+                const descriptionHeader = document.createElement('h2');
+                const descriptionElement = document.createElement('p');
+                const ratingHeader = document.createElement('h2');
+                const ratingElement = document.createElement('p');
+                const posterElement = document.createElement('img');
+
+                // Set the movie details
+                titleElement.textContent = title;
+                genreHeader.textContent = "Genre";
+                genreElement.textContent = genre;
+                descriptionHeader.textContent = "Description";
+                descriptionElement.textContent = description;
+                ratingHeader.textContent = "Rating";
+                ratingElement.textContent = rating;
+                posterElement.src = poster;
+
+                // Add CSS class for poster size
+                movieElement.classList.add('movieContainer');
+                movieElement.setAttribute('id', title);
+                posterElement.classList.add('poster');
+
+                // Append the elements to the movie container
+                movieElement.appendChild(titleElement);
+                movieElement.appendChild(genreHeader);
+                movieElement.appendChild(genreElement);
+                movieElement.appendChild(descriptionHeader);
+                movieElement.appendChild(descriptionElement);
+                movieElement.appendChild(ratingHeader);
+                movieElement.appendChild(ratingElement);
+                movieElement.appendChild(posterElement);
+
+                // Append the movie container to the main container
+                container.appendChild(movieElement);
+            });
+
+            // Append the main container to the document body
+            document.body.appendChild(container);
+        });
+    </script>
+</head>
+<body>
+    <div id="RandomVideo"> 
+        <center>
+            <div id="selectionBar">
+                <a href="search.html" class="searchButton">
+                    <img id="searchIcon" src="search.png">
+                    <h1 id="searchText">search</h1>
+                </a>   
+                <a href="index.html" class="searchButton">
+                    <img id="searchIcon" src="dice.png">
+                    <h1 id="searchText">randomizer</h1>
+                </a>
+            </div>
+            <input type="text" id="searchInput" placeholder="Search..." autocomplete="on">
+            <button id="searchButton" onclick="flash()">Search</button>
+        </center>
+    </div>
+</body>
+</html>

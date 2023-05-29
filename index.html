@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="styles.css">
+    <title>RANDOMIZER</title>
+    <link rel="icon" type="image/png" href="dice.png">
+    <script>
+        fetch('movies.csv')
+        .then(response => response.text())
+        .then(csvData => {
+            const rows = csvData.split('\n');
+            const randomIndex = Math.floor(Math.random() * rows.length);
+            const randomRow = rows[randomIndex];
+            const movieDetails = randomRow.split(',');
+            const title = movieDetails[0];
+            const genre = movieDetails[1];
+            const description = movieDetails[2];
+            const rating = movieDetails[3];
+            const poster = movieDetails[4];
+
+            document.getElementById('title').textContent = title;
+            document.getElementById('genre').textContent = genre;
+            document.getElementById('description').textContent = description;
+            document.getElementById('rating').textContent = rating;
+            document.getElementById('poster').src = poster;
+
+            if(title == "Avatar: The Way of Water"){
+                document.getElementById('trailerButton').href = "https://www.youtube.com/watch?v=d9MyW72ELq0&ab_channel=Avatar";
+            }
+            if(title == "Talk to Me"){
+                document.getElementById('trailerButton').href = "https://www.youtube.com/watch?v=aLAKJu9aJys&ab_channel=A24";
+            }
+            if(title == "Barbie"){
+                document.getElementById('trailerButton').href = "https://www.youtube.com/watch?v=pBk4NYhWNMM&ab_channel=WarnerBros.Pictures";
+            }
+            if(title == "The Super Mario Bros. Movie"){
+                document.getElementById('trailerButton').href = "https://www.youtube.com/watch?v=DUnQcJz76Ck&t=4s&ab_channel=MovieTrailersSource";
+            }
+            if(title == "John Wick: Chapter 4"){
+                document.getElementById('trailerButton').href = "https://www.youtube.com/watch?v=qEVUtrk8_B4&ab_channel=LionsgateMovies";
+            }
+            if(title == "Evil Dead Rise"){
+                document.getElementById('trailerButton').href = "https://www.youtube.com/watch?v=smTK_AeAPHs&ab_channel=StudiocanalUK";
+            }
+            if(title == "Fall"){
+                document.getElementById('trailerButton').href = "https://www.youtube.com/watch?v=aa5MXOMN1lM&ab_channel=MovieTrailersSource";
+            }
+            if(title == "Cocaine Bear"){
+                document.getElementById('trailerButton').href = "https://www.youtube.com/watch?v=DuWEEKeJLMI&ab_channel=UniversalPictures";
+            }
+            if(title == "Shazam! Fury of the Gods"){
+                document.getElementById('trailerButton').href = "https://www.youtube.com/watch?v=AIc671o9yCI&ab_channel=WarnerBros.Pictures";
+            }
+            if(title == "The Batman"){
+                document.getElementById('trailerButton').href = "https://www.youtube.com/watch?v=mqqft2x_Aa4&ab_channel=WarnerBros.Pictures";
+            }
+            if(title == "Dune"){
+                document.getElementById('trailerButton').href = "https://www.youtube.com/watch?v=8g18jFHCLXk&ab_channel=WarnerBros.Pictures";
+            }
+            if(title == "Top Gun: Maverick"){
+                document.getElementById('trailerButton').href = "https://www.youtube.com/watch?v=giXco2jaZ_4&ab_channel=ParamountPictures";
+            }
+            if(title == "Spider-Man: Into the Spider-Verse"){
+                document.getElementById('trailerButton').href = "https://www.youtube.com/watch?v=g4Hbz2jLxvQ&ab_channel=SonyPicturesEntertainment";
+            }
+            if(title == "Guardians of the Galaxy"){
+                document.getElementById('trailerButton').href = "https://www.youtube.com/watch?v=d96cjJhvlMA&ab_channel=MarvelEntertainment";
+            }
+            if(title == "Guardians of the Galaxy Vol. 2"){
+                document.getElementById('trailerButton').href = "https://www.youtube.com/watch?v=wUn05hdkhjM&ab_channel=MarvelEntertainment";
+            }
+            if(title == "Guardians of the Galaxy Vol. 3"){
+                document.getElementById('trailerButton').href = "https://www.youtube.com/watch?v=u3V5KDHRQvk&ab_channel=MarvelEntertainment";
+            }
+            if(title == "Spider-Man"){
+                document.getElementById('trailerButton').href = "https://www.youtube.com/watch?v=t06RUxPbp_c&ab_channel=SonyPicturesEntertainment";
+            }
+            if(title == "Spider-Man 2"){
+                document.getElementById('trailerButton').href = "https://www.youtube.com/watch?v=1s9Yln0YwCw&ab_channel=KinoCheck.com";
+            }
+            if(title == "The Amazing Spider-Man"){
+                document.getElementById('trailerButton').href = "https://www.youtube.com/watch?v=VWMZAZkFDbk&ab_channel=RottenTomatoesTrailers";
+            }
+            if(title == "The Amazing Spider-Man 2"){
+                document.getElementById('trailerButton').href = "https://www.youtube.com/watch?v=DlM2CWNTQ84&ab_channel=SonyPicturesEntertainment";
+            }
+            if(title == "Spider-Man: Homecoming"){
+                document.getElementById('trailerButton').href = "https://www.youtube.com/watch?v=rk-dF1lIbIg&ab_channel=SonyPicturesEntertainment";
+            }
+            if(title == "Spider-Man: Far From Home"){
+                document.getElementById('trailerButton').href = "https://www.youtube.com/watch?v=Nt9L1jCKGnE&ab_channel=SonyPicturesEntertainment";
+            }
+            if(title == "Spider-Man: No Way Home"){
+                document.getElementById('trailerButton').href = "https://www.youtube.com/watch?v=JfVOs4VSpmA&ab_channel=SonyPicturesEntertainment";
+            }
+            if(title == "Shrek"){
+                document.getElementById('trailerButton').href = "https://www.youtube.com/watch?v=CwXOrWvPBPk&ab_channel=RottenTomatoesClassicTrailers";
+            }
+            if(title == "Shrek 2"){
+                document.getElementById('trailerButton').href = "https://www.youtube.com/watch?v=V6X5ti4YlG8&ab_channel=DreamworksAnimFan";
+            }
+            if(title == "Interstellar"){
+                document.getElementById('trailerButton').href = "https://www.youtube.com/watch?v=2LqzF5WauAw&ab_channel=InterstellarMovie";
+            }
+            if(title == "Shrek the Third"){
+                document.getElementById('trailerButton').href = "https://www.youtube.com/watch?v=_MoIr7811Bs&ab_channel=RottenTomatoesClassicTrailers";
+            }
+            if(title == "Shrek the Halls"){
+                document.getElementById('trailerButton').href = "https://www.youtube.com/watch?v=KpytAHTmKXI&ab_channel=MediaGraveyard";
+            }
+            if(title == "Shrek Forever After"){
+                document.getElementById('trailerButton').href = "https://www.youtube.com/watch?v=u7__TG7swg0&ab_channel=hollywoodstreams";
+            }
+            if(title == "Spider-Man 3"){
+                document.getElementById('trailerButton').href = "https://www.youtube.com/watch?v=e5wUilOeOmg&ab_channel=SonyPicturesEntertainment";
+            }
+
+
+            document.getElementById('newMovieButton').addEventListener('click', function() {
+                const randomIndex = Math.floor(Math.random() * rows.length);
+                const randomRow = rows[randomIndex];
+                const movieDetails = randomRow.split(',');
+                const title = movieDetails[0];
+                const genre = movieDetails[1];
+                const description = movieDetails[2];
+                const rating = movieDetails[3];
+                const poster = movieDetails[4];
+
+                document.getElementById('title').textContent = title;
+                document.getElementById('genre').textContent = genre;
+                document.getElementById('description').textContent = description;
+                document.getElementById('rating').textContent = rating;
+                document.getElementById('poster').src = poster;
+                if(title == "Avatar: The Way of Water"){
+                    document.getElementById('trailerButton').href = "https://www.youtube.com/watch?v=d9MyW72ELq0&ab_channel=Avatar";
+                }
+                if(title == "Talk to Me"){
+                    document.getElementById('trailerButton').href = "https://www.youtube.com/watch?v=aLAKJu9aJys&ab_channel=A24";
+                }
+                if(title == "Barbie"){
+                    document.getElementById('trailerButton').href = "https://www.youtube.com/watch?v=pBk4NYhWNMM&ab_channel=WarnerBros.Pictures";
+                }
+                if(title == "The Super Mario Bros. Movie"){
+                    document.getElementById('trailerButton').href = "https://www.youtube.com/watch?v=DUnQcJz76Ck&t=4s&ab_channel=MovieTrailersSource";
+                }
+                if(title == "John Wick: Chapter 4"){
+                    document.getElementById('trailerButton').href = "https://www.youtube.com/watch?v=qEVUtrk8_B4&ab_channel=LionsgateMovies";
+                }
+                if(title == "Evil Dead Rise"){
+                    document.getElementById('trailerButton').href = "https://www.youtube.com/watch?v=smTK_AeAPHs&ab_channel=StudiocanalUK";
+                }
+                if(title == "Fall"){
+                    document.getElementById('trailerButton').href = "https://www.youtube.com/watch?v=aa5MXOMN1lM&ab_channel=MovieTrailersSource";
+                }
+                if(title == "Cocaine Bear"){
+                    document.getElementById('trailerButton').href = "https://www.youtube.com/watch?v=DuWEEKeJLMI&ab_channel=UniversalPictures";
+                }
+                if(title == "Shazam! Fury of the Gods"){
+                    document.getElementById('trailerButton').href = "https://www.youtube.com/watch?v=AIc671o9yCI&ab_channel=WarnerBros.Pictures";
+                }
+                if(title == "The Batman"){
+                    document.getElementById('trailerButton').href = "https://www.youtube.com/watch?v=mqqft2x_Aa4&ab_channel=WarnerBros.Pictures";
+                }
+                if(title == "Dune"){
+                    document.getElementById('trailerButton').href = "https://www.youtube.com/watch?v=8g18jFHCLXk&ab_channel=WarnerBros.Pictures";
+                }
+                if(title == "Top Gun: Maverick"){
+                    document.getElementById('trailerButton').href = "https://www.youtube.com/watch?v=giXco2jaZ_4&ab_channel=ParamountPictures";
+                }
+                if(title == "Spider-Man: Into the Spider-Verse"){
+                    document.getElementById('trailerButton').href = "https://www.youtube.com/watch?v=g4Hbz2jLxvQ&ab_channel=SonyPicturesEntertainment";
+                }
+                if(title == "Guardians of the Galaxy"){
+                    document.getElementById('trailerButton').href = "https://www.youtube.com/watch?v=d96cjJhvlMA&ab_channel=MarvelEntertainment";
+                }
+                if(title == "Guardians of the Galaxy Vol. 2"){
+                    document.getElementById('trailerButton').href = "https://www.youtube.com/watch?v=wUn05hdkhjM&ab_channel=MarvelEntertainment";
+                }
+                if(title == "Guardians of the Galaxy Vol. 3"){
+                    document.getElementById('trailerButton').href = "https://www.youtube.com/watch?v=u3V5KDHRQvk&ab_channel=MarvelEntertainment";
+                }
+                if(title == "Spider-Man"){
+                    document.getElementById('trailerButton').href = "https://www.youtube.com/watch?v=t06RUxPbp_c&ab_channel=SonyPicturesEntertainment";
+                }
+                if(title == "Spider-Man 2"){
+                    document.getElementById('trailerButton').href = "https://www.youtube.com/watch?v=1s9Yln0YwCw&ab_channel=KinoCheck.com";
+                }
+                if(title == "The Amazing Spider-Man"){
+                    document.getElementById('trailerButton').href = "https://www.youtube.com/watch?v=VWMZAZkFDbk&ab_channel=RottenTomatoesTrailers";
+                }
+                if(title == "The Amazing Spider-Man 2"){
+                    document.getElementById('trailerButton').href = "https://www.youtube.com/watch?v=DlM2CWNTQ84&ab_channel=SonyPicturesEntertainment";
+                }
+                if(title == "Spider-Man: Homecoming"){
+                    document.getElementById('trailerButton').href = "https://www.youtube.com/watch?v=rk-dF1lIbIg&ab_channel=SonyPicturesEntertainment";
+                }
+                if(title == "Spider-Man: Far From Home"){
+                    document.getElementById('trailerButton').href = "https://www.youtube.com/watch?v=Nt9L1jCKGnE&ab_channel=SonyPicturesEntertainment";
+                }
+                if(title == "Spider-Man: No Way Home"){
+                    document.getElementById('trailerButton').href = "https://www.youtube.com/watch?v=JfVOs4VSpmA&ab_channel=SonyPicturesEntertainment";
+                }
+                if(title == "Shrek"){
+                    document.getElementById('trailerButton').href = "https://www.youtube.com/watch?v=CwXOrWvPBPk&ab_channel=RottenTomatoesClassicTrailers";
+                }
+                if(title == "Shrek 2"){
+                    document.getElementById('trailerButton').href = "https://www.youtube.com/watch?v=V6X5ti4YlG8&ab_channel=DreamworksAnimFan";
+                }
+                if(title == "Interstellar"){
+                    document.getElementById('trailerButton').href = "https://www.youtube.com/watch?v=2LqzF5WauAw&ab_channel=InterstellarMovie";
+                }
+                if(title == "Shrek the Third"){
+                    document.getElementById('trailerButton').href = "https://www.youtube.com/watch?v=_MoIr7811Bs&ab_channel=RottenTomatoesClassicTrailers";
+                }
+                if(title == "Shrek the Halls"){
+                    document.getElementById('trailerButton').href = "https://www.youtube.com/watch?v=KpytAHTmKXI&ab_channel=MediaGraveyard";
+                }
+                if(title == "Shrek Forever After"){
+                    document.getElementById('trailerButton').href = "https://www.youtube.com/watch?v=u7__TG7swg0&ab_channel=hollywoodstreams";
+                }
+                if(title == "Spider-Man 3"){
+                    document.getElementById('trailerButton').href = "https://www.youtube.com/watch?v=e5wUilOeOmg&ab_channel=SonyPicturesEntertainment";
+                }
+
+            });
+        });
+    </script>
+</head>
+<body>
+    <div id="RandomVideo"> 
+        <center>
+            <div id="selectionBar">
+                <a href="search.html" class="searchButton">
+                    <img id="searchIcon" src="search.png">
+                    <h1 id="searchText">search</h1>
+                </a>   
+                <a href="index.html" class="searchButton">
+                    <img id="searchIcon" src="dice.png">
+                    <h1 id="searchText">randomizer</h1>
+                </a>
+            </div>
+            
+            <h1 id="title"></h1>
+            <h2 id="headTitles">Genre</h2>
+            <p id="genre"></p>
+            <h2 id="headTitles">Description</h2>
+            <p id="description"></p>
+            <h2 id="headTitles">IMDB Rating</h2>
+            <p id="rating"></p>
+            <img id="poster" src="" alt="Movie Poster">
+            <br>
+            <br>
+            <br>
+            <a id="trailerButton" href="" target="_blank">TRAILER</a>
+            <br>
+            <br>
+            <br>
+            <button id="newMovieButton">Generate New Movie</button>
+        </center>
+    </div>
+</body>
+</html>
